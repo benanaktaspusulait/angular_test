@@ -1,0 +1,31 @@
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="word">
+      <th mat-header-cell *matHeaderCellDef> Word</th>
+      <td mat-cell *matCellDef="let element"> {{element.word}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="per">
+      <th mat-header-cell *matHeaderCellDef> % of all comments</th>
+      <td mat-cell *matCellDef="let element"> {{element.per}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
+
+
+<div>
+  <h3>Count Of Top 10 Words</h3>
+  <ng-container *ngFor="let item of words">
+    <div>
+      <div fxFlex="">{{item.word}}
+        <mat-progress-bar mode="determinate" [value]="item.per"></mat-progress-bar>
+      </div>
+    </div>
+  </ng-container>
+</div>

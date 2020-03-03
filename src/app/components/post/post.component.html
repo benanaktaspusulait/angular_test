@@ -1,0 +1,7 @@
+<div role="list">
+  <mat-card *ngFor="let post of posts" (click)="onClick(post.id)"  >
+    <h3  matLine>{{post.title}}</h3>
+    <p >{{post.body}}</p>
+  </mat-card>
+
+</div>

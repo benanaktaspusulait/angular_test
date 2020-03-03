@@ -1,0 +1,20 @@
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <app-filter (userId)="onUserIdChange($event)"></app-filter>
+    </mat-toolbar>
+    <main>
+      <mat-grid-list cols="2" rowHeight="1:1">
+        <mat-grid-tile>
+          <perfect-scrollbar  [config]="config">
+          <app-post [userId]="userId" (postId)="onPostIdChange($event)" *ngIf="userId"></app-post>
+        </perfect-scrollbar>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <app-comment [postId]="postId" *ngIf="postId"></app-comment>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
